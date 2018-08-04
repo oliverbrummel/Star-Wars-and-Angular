@@ -22,8 +22,9 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(): any {
-    console.log('hit submit!', this.searchForm.value['searchString']);
     const searchString = this.searchForm.value['searchString'];
+    console.log('searchString', searchString);
+
     this.starwarsService.getCharacters(searchString);
   }
 
