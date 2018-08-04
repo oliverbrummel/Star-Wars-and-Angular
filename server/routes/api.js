@@ -29,7 +29,8 @@ let response = {
 
 // Get characters
 router.get("/characters", (req, res, next) => {
-  request({uri:"https://swapi.co/api/people/?search=" + req.query.nameStartsWith})
+  request({uri: "https://swapi.co/api/people/?search=" + req.query.nameStartsWith})
+  // request({uri:"https://swapi.co/api/people/" })
     .pipe(res);
 });
 

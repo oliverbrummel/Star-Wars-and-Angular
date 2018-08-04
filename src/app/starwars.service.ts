@@ -12,6 +12,8 @@ export class StarwarsService {
   private characters = new BehaviorSubject<ICharacter[]>([]);
   cast = this.characters.asObservable();
 
+  private nextPage: any;
+
   constructor(private http: HttpClient) {}
 
   getCharacters(searchString: string): any {
@@ -20,6 +22,8 @@ export class StarwarsService {
       .get<ICharacter[]>('api/characters', { params: params })
       .pipe(
         map(res => {
+          this.nextPage = res['next'];
+          console.log('Rezzy', res);
           return res['results'];
         }),
         tap(res => console.log('service response', res)))
