@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { switchMap, map } from 'rxjs/operators';
 import 'rxjs/add/observable/of';
 import * as _ from 'lodash';
-import { ICharacter } from './character';
+import { ICharacter } from '../interfaces/character';
 
 
 @Injectable()

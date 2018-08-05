@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
-import { CharactersService } from './characters.service';
+import { CharactersService } from './services/characters.service';
 import { MyAngularMaterialModule } from './custom-modules/my-angular-material/my-angular-material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';

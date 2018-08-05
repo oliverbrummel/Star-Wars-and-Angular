@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CharactersService } from '../../characters.service';
+import { CharactersService } from '../../services/characters.service';
 
-import { ICharacter } from '../../character';
+import { ICharacter } from '../../interfaces/character';
 
 @Component({
   selector: 'app-main-content',
