@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { switchMap} from 'rxjs/operators';
 import 'rxjs/add/observable/of';
-import { tap, map , mergeMap, switchMap} from 'rxjs/operators';
 
 import { ICharacter } from './character';
 

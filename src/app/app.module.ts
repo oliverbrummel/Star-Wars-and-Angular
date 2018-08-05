@@ -6,17 +6,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
 import { StarwarsService } from './starwars.service';
-import { ListComponent } from './list/list.component';
 import { MyAngularMaterialModule } from './custom-modules/my-angular-material/my-angular-material.module';
+import { HeaderComponent } from './components/header/header.component';
+import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { MainContentComponent } from './components/main-content/main-content.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
-    ListComponent
+    HeaderComponent,
+    SideNavComponent,
+    MainContentComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
