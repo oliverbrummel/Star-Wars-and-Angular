@@ -8,7 +8,7 @@ import { ICharacter } from './character';
 
 
 @Injectable()
-export class StarwarsService {
+export class CharactersService {
   private nextPath: any;
   private charactersArray: any = [];
 
@@ -26,15 +26,15 @@ export class StarwarsService {
           });
           return res;
         }),
-        switchMap(res => {
-          this.charactersArray = this.charactersArray.concat(res['results']);
-          this.nextPath = res['next'];
-          return this.nextPath ? this.getCharacters(this.nextPath) : Observable.of(this.charactersArray);
-        })
-        // map(res => {
-        //   console.log('res', res);
-        //   return res['results'];
+        // switchMap(res => {
+        //   this.charactersArray = this.charactersArray.concat(res['results']);
+        //   this.nextPath = res['next'];
+        //   return this.nextPath ? this.getCharacters(this.nextPath) : Observable.of(this.charactersArray);
         // })
+        map(res => {
+          console.log('res', res);
+          return res['results'];
+        })
       );
   }
 

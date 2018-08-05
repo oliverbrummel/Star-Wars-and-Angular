@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
-import { StarwarsService } from './starwars.service';
+import { CharactersService } from './characters.service';
 import { MyAngularMaterialModule } from './custom-modules/my-angular-material/my-angular-material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
@@ -29,7 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     MyAngularMaterialModule
   ],
-  providers: [StarwarsService],
+  providers: [CharactersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

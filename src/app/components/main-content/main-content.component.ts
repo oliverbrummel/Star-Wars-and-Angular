@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StarwarsService } from '../../starwars.service';
+import { CharactersService } from '../../characters.service';
 
 import { ICharacter } from '../../character';
 
@@ -12,7 +12,7 @@ export class MainContentComponent implements OnInit {
 
   listItems: ICharacter[];
 
-  constructor(private starwarsService: StarwarsService) { }
+  constructor(private starwarsService: CharactersService) { }
 
   testClick(character: object): any {
     console.log('character', character);
