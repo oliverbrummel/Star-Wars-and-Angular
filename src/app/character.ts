@@ -15,4 +15,5 @@ export interface ICharacter {
   starships: string[];
   url: string;
   vehicles: string[];
+  img_url: string;
 }

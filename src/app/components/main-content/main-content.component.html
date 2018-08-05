@@ -1,7 +1,9 @@
 <div>
   <mat-grid-list cols="5" rowHeight="1:1">
     <mat-grid-tile *ngFor="let item of listItems" (click)="testClick(item)">
-      {{item.name}}
+      <mat-card>
+        <img mat-card-image [src]="item['img_url']">
+      </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
