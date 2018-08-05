@@ -1,5 +1,11 @@
 # Star-Wars-and-Angular
 Messing around with Angular and the public Star Wars API
+While generated with Algular Cli like stated below, here are the steps to run locally with node server:
+
+run `ng build --watch` in one terminal
+run `npm start` in another terminal window.
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
