@@ -17,7 +17,12 @@ export class ListComponent implements OnInit {
   constructor(private starwarsService: StarwarsService) { }
 
   ngOnInit() {
-    this.starwarsService.cast.subscribe(data => this.searchResults = data);
+    // this.starwarsService.cast.subscribe(data => this.searchResults = data);
+    this.starwarsService.getCharacters('https://swapi.co/api/people/?page=1')
+    .subscribe(data => {
+      console.log('controller data', data);
+      this.searchResults = data;
+    });
   }
 
 }
