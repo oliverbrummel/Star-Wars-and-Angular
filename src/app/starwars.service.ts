@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { tap, map , mergeMap} from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/observable/of';
+import { tap, map , mergeMap, switchMap} from 'rxjs/operators';
 
 import { ICharacter } from './character';
 
 
 @Injectable()
 export class StarwarsService {
-  private characters = new BehaviorSubject<ICharacter[]>([]);
-  cast = this.characters.asObservable();
+  private nextPath: any;
+  private charactersArray: any = [];
 
   constructor(private http: HttpClient) {}
 
@@ -19,25 +19,11 @@ export class StarwarsService {
     return this.http
       .get<ICharacter[]>('api/characters', { params: params })
       .pipe(
-        map(res => {
-          console.log('getCharacters() response', res);
-          return res['results'];
-        }),
+        switchMap(res => {
+          this.charactersArray = this.charactersArray.concat(res['results']);
+          this.nextPath = res['next'];
+          return this.nextPath ? this.getCharacters(this.nextPath) : Observable.of(this.charactersArray);
+        })
       );
   }
-
-
-  // getCharacters(searchString: string): any {
-  //   const params = new HttpParams().set('nameStartsWith', searchString);
-  //   this.http
-  //     .get<ICharacter[]>('api/characters', { params: params })
-  //     .pipe(
-  //       map(res => {
-  //         this.nextPage = res['next'];
-  //         console.log('Rezzy', res);
-  //         return res['results'];
-  //       }),
-  //       tap(res => console.log('service response', res)))
-  //     .subscribe(characters => this.characters.next(characters));
-  // }
 }
