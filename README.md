@@ -1,4 +1,5 @@
-# Starwars
+# Star-Wars-and-Angular
+Messing around with Angular and the public Star Wars API
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
