@@ -14,7 +14,10 @@ export class CharactersService {
   private nextPath: any;
   private charactersArray: any = [];
 
-  constructor(private http: HttpClient, private imageHelperService: ImageHelperService) {}
+  constructor(
+    private http: HttpClient,
+    private imageHelperService: ImageHelperService
+  ) {}
 
   getCharacters(apiRequestPath: string): any {
     const params = new HttpParams().set('apiRequestPath', apiRequestPath);

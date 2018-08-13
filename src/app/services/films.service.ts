@@ -16,7 +16,10 @@ export class FilmsService {
   private nextPath: any;
   private filmsArray: any = [];
 
-  constructor(private http: HttpClient, private imageHelperService: ImageHelperService) {}
+  constructor(
+    private http: HttpClient,
+    private imageHelperService: ImageHelperService
+  ) {}
 
   getFilms(apiRequestPath: string): any {
     const params = new HttpParams().set('apiRequestPath', apiRequestPath);
