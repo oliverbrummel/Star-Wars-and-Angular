@@ -15,7 +15,10 @@ export class AllFilmsComponent implements OnInit {
 
   ngOnInit() {
     this.filmsService.getFilms('https://swapi.co/api/films/?page=1')
-      .subscribe(response => this.listItems = response);
+      .subscribe(response => {
+        sessionStorage.setItem('films', JSON.stringify(response));
+        this.listItems = response;
+      });
   }
 
 }

@@ -22,7 +22,10 @@ export class AllCharactersComponent implements OnInit {
 
   ngOnInit() {
     this.charactersService.getCharacters('https://swapi.co/api/people/?page=1')
-    .subscribe(response => this.listItems = response);
+    .subscribe(response => {
+      sessionStorage.setItem('characters', JSON.stringify(response));
+      this.listItems = response;
+    });
   }
 
 }

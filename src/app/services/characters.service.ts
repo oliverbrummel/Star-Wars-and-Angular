@@ -20,6 +20,10 @@ export class CharactersService {
   ) {}
 
   getCharacters(apiRequestPath: string): any {
+    const cachedCharacters = JSON.parse(sessionStorage.getItem('characters'));
+    if (cachedCharacters) {
+      return Observable.of(cachedCharacters);
+    }
     const params = new HttpParams().set('apiRequestPath', apiRequestPath);
     return this.http
       .get<ICharacter[]>('api/characters', { params: params })
@@ -31,14 +35,10 @@ export class CharactersService {
           });
           return res;
         }),
-        // switchMap(res => {
-        //   this.charactersArray = this.charactersArray.concat(res['results']);
-        //   this.nextPath = res['next'];
-        //   return this.nextPath ? this.getCharacters(this.nextPath) : Observable.of(this.charactersArray);
-        // })
-        map(res => {
-          console.log('res', res);
-          return res['results'];
+        switchMap(res => {
+          this.charactersArray = this.charactersArray.concat(res['results']);
+          this.nextPath = res['next'];
+          return this.nextPath ? this.getCharacters(this.nextPath) : Observable.of(this.charactersArray);
         })
       );
   }

@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 
 import { ImageHelperService } from './image-helper.service';
 import { IFilm } from '../interfaces/film';
+import { Observable } from '../../../node_modules/rxjs';
 
 
 @Injectable({
@@ -22,6 +23,10 @@ export class FilmsService {
   ) {}
 
   getFilms(apiRequestPath: string): any {
+    const cachedFilms = JSON.parse(sessionStorage.getItem('films'));
+    if (cachedFilms) {
+      return Observable.of(cachedFilms);
+    }
     const params = new HttpParams().set('apiRequestPath', apiRequestPath);
     return this.http
       .get<IFilm[]>('api/films', {params: params })
