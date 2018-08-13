@@ -14,7 +14,6 @@ import { StarshipsService } from './services/starships.service';
 import { VehiclesService } from './services/vehicles.service';
 import { MyAngularMaterialModule } from './custom-modules/my-angular-material/my-angular-material.module';
 import { HeaderComponent } from './components/header/header.component';
-import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AllCharactersComponent } from './characters/all-characters/all-characters.component';
@@ -30,7 +29,6 @@ import { AppRoutingModule } from './custom-modules/app-routing/app-routing.modul
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideNavComponent,
     MainContentComponent,
     FooterComponent,
     AllCharactersComponent,
