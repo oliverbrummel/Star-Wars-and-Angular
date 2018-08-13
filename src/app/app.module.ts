@@ -17,6 +17,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AllCharactersComponent } from './characters/all-characters/all-characters.component';
+import { AllFilmsComponent } from './films/all-films/all-films.component';
+import { AllPlanetsComponent } from './planets/all-planets/all-planets.component';
+import { AllSpeciesComponent } from './species/all-species/all-species.component';
+import { AllStarshipsComponent } from './starships/all-starships/all-starships.component';
+import { AllVehiclesComponent } from './vehicles/all-vehicles/all-vehicles.component';
+import { AppRoutingModule } from './custom-modules/app-routing/app-routing.module';
 
 
 @NgModule({
@@ -25,9 +32,16 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     SideNavComponent,
     MainContentComponent,
-    FooterComponent
+    FooterComponent,
+    AllCharactersComponent,
+    AllFilmsComponent,
+    AllPlanetsComponent,
+    AllSpeciesComponent,
+    AllStarshipsComponent,
+    AllVehiclesComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
