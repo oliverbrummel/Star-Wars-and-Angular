@@ -6,7 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
+import { FilmsService } from './services/films.service';
 import { CharactersService } from './services/characters.service';
+import { SpeciesService } from './services/species.service';
+import { PlanetsService } from './services/planets.service';
+import { StarshipsService } from './services/starships.service';
+import { VehiclesService } from './services/vehicles.service';
 import { MyAngularMaterialModule } from './custom-modules/my-angular-material/my-angular-material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
@@ -29,7 +34,14 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     MyAngularMaterialModule
   ],
-  providers: [CharactersService],
+  providers: [
+    CharactersService,
+    FilmsService,
+    SpeciesService,
+    PlanetsService,
+    StarshipsService,
+    VehiclesService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

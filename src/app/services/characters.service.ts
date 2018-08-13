@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { switchMap, map } from 'rxjs/operators';
 import 'rxjs/add/observable/of';
 import * as _ from 'lodash';
+
+import { ImageHelperService } from './image-helper.service';
 import { ICharacter } from '../interfaces/character';
 
 
@@ -12,7 +14,7 @@ export class CharactersService {
   private nextPath: any;
   private charactersArray: any = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private imageHelperService: ImageHelperService) {}
 
   getCharacters(apiRequestPath: string): any {
     const params = new HttpParams().set('apiRequestPath', apiRequestPath);
@@ -21,7 +23,7 @@ export class CharactersService {
       .pipe(
         map(res => {
           _.map(res['results'], (character: any) => {
-            character['img_url'] = this.getImagePath(character);
+            character['img_url'] = this.imageHelperService.getImagePath(character, 'characters');
             return character;
           });
           return res;
@@ -36,15 +38,5 @@ export class CharactersService {
           return res['results'];
         })
       );
-  }
-
-  getImagePath(character: any): any {
-    const id = this.findIdFromUrl(character['url']);
-    return '../assets/img/characters/' + id + '.jpg';
-  }
-
-  findIdFromUrl(url: string): any {
-    const id: any = url.match(/([0-9])+/g);
-    return id[0];
   }
 }

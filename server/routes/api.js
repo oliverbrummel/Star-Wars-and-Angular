@@ -27,8 +27,43 @@ let response = {
   message: null
 };
 
+// Get films
+router.get("/films", (req, res, next) => {
+  let apiRequestPath = req.query.apiRequestPath;
+  request({uri: apiRequestPath})
+    .pipe(res);
+});
+
 // Get characters
 router.get("/characters", (req, res, next) => {
+  let apiRequestPath = req.query.apiRequestPath;
+  request({uri: apiRequestPath})
+    .pipe(res);
+});
+
+// Get planets
+router.get("/planets", (req, res, next) => {
+  let apiRequestPath = req.query.apiRequestPath;
+  request({uri: apiRequestPath})
+    .pipe(res);
+});
+
+// Get species
+router.get("/species", (req, res, next) => {
+  let apiRequestPath = req.query.apiRequestPath;
+  request({uri: apiRequestPath})
+    .pipe(res);
+});
+
+// Get starships
+router.get("/starships", (req, res, next) => {
+  let apiRequestPath = req.query.apiRequestPath;
+  request({uri: apiRequestPath})
+    .pipe(res);
+});
+
+// Get vehicles
+router.get("/vehicles", (req, res, next) => {
   let apiRequestPath = req.query.apiRequestPath;
   request({uri: apiRequestPath})
     .pipe(res);
